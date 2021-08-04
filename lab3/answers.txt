@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: sort1 runs slighlty faster than sort3 on the pre sorted number sets
+
+sort2 uses: Merge Sort
+
+How do you know?: sort2 handles sorting the numbers significantly faster than both sort1 & sort3, so I can make the conclusion that sort2 is merge sort due to the more efficient upperbound algorithm of O(n log n)
+
+sort3 uses: Selection Sort
+
+How do you know?: sort3 takes significantly more time to run than sort1 or sort2 on the pre sorted number sets as it still must compare the entire set
