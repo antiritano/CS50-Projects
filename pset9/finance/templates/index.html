@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+<!-->
+shares = {}  #[{'symbol': 'AAPL'}, {'symbol': 'FB'}]
+print(prices)   # {'AAPL': 145.11, 'FB': 350.42}
+print(shares)   # {'AAPL': 3.0, 'FB': 3.0}
+print(names)    # {'AAPL': 'Apple Inc', 'FB': 'Facebook Inc - Class A'}
+<-->
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>{{ totalCash | usd }}</td>
+            </tr>
+        </tfoot>
+        <tbody>
+
+            <!-- TODO: Loop through the database entries to display them in this table -->
+            {% for symbol in symbols %}
+            {% if shares[symbol['symbol']] > 0 %}
+            <tr>
+                <td>{{ symbol['symbol'] }}</td>
+                <td>{{ names[symbol['symbol']] }}</td>
+                <td>{{ shares[symbol['symbol']] }}</td>
+                <td>{{ prices[symbol['symbol']] | usd }}</td>
+                <td>{{ totals[symbol['symbol']] | usd }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+            <tr>
+                <td>CASH</td>
+                <td colspan="3"></td>
+                <td>{{ cash[0]['cash'] | usd }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,1 @@
+SELECT avg(rating) FROM ratings WHERE movie_ID IN (SELECT id FROM movies WHere year = "2012")
